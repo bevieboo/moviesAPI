@@ -1,0 +1,15 @@
+<h1>Welcome to the biggest movie database</h1>
+
+<form action="/movie_info">
+  <label for="">Search Movie</label>
+  <input type="text" name="movie" placeholder="Enter Movie">
+  <button>Search</button>
+</form>
+
+<p>
+<% @movie_info.each do |k, v| %>
+
+  <%= k %>: <%= v %> </br>
+
+<% end %>
+</p>
