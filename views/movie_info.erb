@@ -6,10 +6,20 @@
   <button>Search</button>
 </form>
 
-<p>
-<% @movie_info.each do |k, v| %>
+<div id="image">
+  <% @movie_info.each do |k, v| %>
+    <% if k == "Poster" %>
+      <div class="image">
+        <img src= <%= v %>> </br>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
-  <%= k %>: <%= v %> </br>
-
-<% end %>
-</p>
+<div id="info">
+  <% @movie_info.each do |k, v| %>
+    <% if k != "Poster" %>
+      <%= k %>: <%= v %> </br>
+    <% end %>
+  <% end %>
+</div>
