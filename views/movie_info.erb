@@ -1,7 +1,12 @@
 <div class="header-wrapper">
+
   <div class="header-background" style="background-image: url(<%= @movie_info['Poster'] %>)">
   </div>
+
   <div class="header-yellow"></div>
+
+  <div class="logo"></div>
+
   <div class="search">
     <form action="/movie_info">
       <input type="text" name="movie" placeholder="Enter Movie" class="input-box">
@@ -10,6 +15,7 @@
       </button>
     </form>
   </div>
+
 </div>
 
 
@@ -20,10 +26,30 @@
   </div>
 
   <div class="title-wrapper">
+
     <div class="title">
       <h1> <%= @movie_info['Title'] %> (<%= @movie_info['Year'] %>)</h1>
     </div>
+
+    <div class="rating">
+      <div class="info-text">IMDb Rating: </br></div> <%= @movie_info['imdbRating'] %>
+    </div>
+
+    <div class="rated">
+      <div class="info-text">Rated: </br></div> <%= @movie_info['Rated'] %>
+    </div>
+
+    <div class="released">
+      <div class="info-text">Released: </br></div> <%= @movie_info['Released'] %>
+    </div>
+
+    <div class="runtime">
+      <div class="info-text">Runtime4: </br></div> <%= @movie_info['Runtime'] %>
+    </div>
+
   </div>
+
+  <div class="info-wrapper">
 
     <div class="plot">
       <div class="info-text">
@@ -31,12 +57,32 @@
       </div>
     </div>
 
-    <div class="info">
+    <div class="genre">
+      <span class="info-text">Genre: </span><%= @movie_info['Genre'] %>
+    </div>
+
+    <div class="director">
+      <span class="info-text"> Director: </span><%= @movie_info['Director'] %>
+    </div>
+
+    <div class="writers">
+      <span class="info-text"> Writers: </span><%= @movie_info['Writer'] %>
+    </div>
+
+    <div class="actors">
+      <span class="info-text"> Cast: </span><%= @movie_info['Actors'] %>
+    </div>
+
+  </div>
+
+  <!-- Looping through object in Sinatra: -->
+
+    <!-- <div class="info">
       <% @movie_info.each do |k, v| %>
         <% if k != "Poster" && k != "Title" && k != "Plot" && k != "Year" && k != "imdbID" && k != "Type" && k != "Response" %>
           <div class="info-text"> <%= k %>: </div> <%= v %> </br></br>
         <% end %>
       <% end %>
-    </div>
+    </div> -->
 
 </div>
