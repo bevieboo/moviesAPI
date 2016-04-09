@@ -1,25 +1,38 @@
-<h1>Welcome to the biggest movie database</h1>
-
-<form action="/movie_info">
-  <label for="">Search Movie</label>
-  <input type="text" name="movie" placeholder="Enter Movie">
-  <button>Search</button>
-</form>
-
-<div id="image">
-  <% @movie_info.each do |k, v| %>
-    <% if k == "Poster" %>
-      <div class="image">
-        <img src= <%= v %>> </br>
-      </div>
-    <% end %>
-  <% end %>
+<div class="header-wrapper">
+  <div class="header-background" style="background-image: url(<%= @movie_info['Poster'] %>)">
+  </div>
+  <div class="header-yellow"></div>
+  <div class="search">
+    <form action="/movie_info">
+      <input type="text" name="movie" placeholder="Enter Movie" class="input-box">
+      <button class="button">Search</button>
+    </form>
+  </div>
 </div>
 
-<div id="info">
-  <% @movie_info.each do |k, v| %>
-    <% if k != "Poster" %>
-      <%= k %>: <%= v %> </br>
-    <% end %>
-  <% end %>
+
+<div class="movie-info-wrapper">
+
+  <div class="image-wrapper">
+    <img src="<%= @movie_info['Poster'] %>" class="image">
+  </div>
+
+    <div class="title">
+      <h1> <%= @movie_info['Title'] %> (<%= @movie_info['Year'] %>)</h1>
+    </div>
+
+    <div class="plot">
+      <div class="info-text">
+        <%= @movie_info['Plot'] %>
+      </div>
+    </div>
+
+    <div class="info">
+      <% @movie_info.each do |k, v| %>
+        <% if k != "Poster" && k != "Title" && k != "Plot" && k != "Year" && k != "imdbID" && k != "Type" && k != "Response" %>
+          <div class="info-text"> <%= k %>: </div> <%= v %> </br></br>
+        <% end %>
+      <% end %>
+    </div>
+
 </div>
