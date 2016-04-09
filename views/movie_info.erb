@@ -5,7 +5,9 @@
   <div class="search">
     <form action="/movie_info">
       <input type="text" name="movie" placeholder="Enter Movie" class="input-box">
-      <button class="button">Search</button>
+      <button class="button">
+        <img src="style/search.png">
+      </button>
     </form>
   </div>
 </div>
@@ -17,9 +19,11 @@
     <img src="<%= @movie_info['Poster'] %>" class="image">
   </div>
 
+  <div class="title-wrapper">
     <div class="title">
       <h1> <%= @movie_info['Title'] %> (<%= @movie_info['Year'] %>)</h1>
     </div>
+  </div>
 
     <div class="plot">
       <div class="info-text">
