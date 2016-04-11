@@ -29,21 +29,3 @@ get '/movie_info' do
 end
 
 # binding.pry
-
-
-# get '/movie_info' do
-#   if params[:movie] != nil
-#     movie_name = params[:movie].to_s
-#     @result = HTTParty.get("http://omdbapi.com/?s=#{movie_name}")
-#
-#     if @result['Search'].length == 1
-#       url = 'http://omdbapi.com/?t='+movie_name
-#       @movie_info = HTTParty.get(url)
-#
-#     elsif @result['Search'].length > 1
-#       redirect "/movie_list"
-#     end
-#
-#   end
-#   erb :movie_info
-# end
