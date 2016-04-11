@@ -17,9 +17,35 @@
 
 </div> -->
 
+<div class="index-header-wrapper">
+
+  <div class="logo"></div>
+
+  <div class="search">
+    <form action="/movie_list">
+      <input type="text" name="movie" placeholder="Enter Movie" class="input-box">
+      <button class="button">
+        <img src="style/search.png">
+      </button>
+    </form>
+  </div>
+
+</div>
+
 
 <div class="list-results">
   <% @result['Search'].each do |k, v| %>
-    <a href="/movie_info?imdbID=<%= k['imdbID'] %>"><%= k['Title'] %> (<%= k['Year']%>)</a></br></br>
+    <div class="result-wrapper">
+      <div class="result-poster">
+        <% if k['Poster'] == "N/A"%>
+          <img src="/style/defaultposter.jpg" alt="">
+        <% else %>
+          <img src="<%= k['Poster'] %>" alt="">
+        <% end %>
+      </div>
+      <div class="result-title">
+        <a href="/movie_info?imdbID=<%= k['imdbID'] %>"><%= k['Title'] %> (<%= k['Year']%>)</a></br></br>
+      </div>
+    </div>
   <% end %>
 </div>
