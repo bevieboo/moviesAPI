@@ -1,13 +1,19 @@
+<% content_for :body_classes do %>
+  homepage
+<% end %>
+
 <div class="index-background">
 
 <div class="header">
 
-  <h1>Movies and TV</h1>
+  <h1>MOVIES AND TV</h1>
 
-  <div class="logo"></div>
+  <a href="/">
+    <div class="logo"></div>
+  </a>
 
   <div class="index-search">
-    <form action="/movie_list">
+    <form action="/movie_list" class="input-wrapper">
       <input type="text" name="movie" placeholder="Search Movie and TV" class="index-input-box">
       <button class="index-button">
         <img src="style/search.png">

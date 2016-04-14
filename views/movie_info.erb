@@ -5,7 +5,9 @@
 
   <div class="header-yellow"></div>
 
-  <div class="logo"></div>
+  <a href="/">
+    <div class="logo"></div>
+  </a>
 
   <div class="search">
     <form action="/movie_list">
@@ -22,7 +24,11 @@
 <div class="movie-info-wrapper">
 
   <div class="image-wrapper">
-    <img src="<%= @movie_info['Poster'] %>" class="image">
+    <% if @movie_info['Poster'] == "N/A"%>
+      <img src="/style/defaultposter.jpg" class="image1">
+    <% else %>
+      <img src="<%= @movie_info['Poster'] %>" class="image">
+    <% end %>
   </div>
 
   <div class="title-wrapper">

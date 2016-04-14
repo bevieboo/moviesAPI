@@ -1,0 +1,10 @@
+CREATE DATABASE omdb;
+
+\c omdb
+
+CREATE TABLE movies (
+  id SERIAL4 PRIMARY KEY,
+  Title VARCHAR(50),
+  Poster VARCHAR(5000),
+  imdbID VARCHAR(50)
+);

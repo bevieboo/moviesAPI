@@ -1,29 +1,12 @@
-<!-- <div class="header-wrapper">
-
-
-
-  <div class="header-yellow"></div>
-
-  <div class="logo"></div>
-
-  <div class="search">
-    <form action="/movie_info">
-      <input type="text" name="movie" placeholder="Enter Movie" class="input-box">
-      <button class="button">
-        <img src="style/search.png">
-      </button>
-    </form>
-  </div>
-
-</div> -->
-
 <div class="index-header-wrapper">
 
-  <div class="logo"></div>
+  <a href="/">
+    <div class="logo"></div>
+  </a>
 
-  <div class="search">
+  <div class="search-list">
     <form action="/movie_list">
-      <input type="text" name="movie" placeholder="Enter Movie" class="input-box">
+      <input type="text" name="movie" placeholder="Enter Movie" class="input-box-list">
       <button class="button">
         <img src="style/search.png">
       </button>
@@ -31,7 +14,6 @@
   </div>
 
 </div>
-
 
 <div class="list-results">
   <% @result['Search'].each do |k, v| %>
