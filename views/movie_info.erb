@@ -1,6 +1,6 @@
 <div class="header-wrapper">
 
-  <div class="header-background" style="background-image: url(<%= @movie_info['Poster'] %>)">
+  <div class="header-background" style="background-image: url(<%= @movie_info['poster'] %>)">
   </div>
 
   <div class="header-yellow"></div>
@@ -24,33 +24,33 @@
 <div class="movie-info-wrapper">
 
   <div class="image-wrapper">
-    <% if @movie_info['Poster'] == "N/A"%>
+    <% if @movie_info['poster'] == "N/A"%>
       <img src="/style/defaultposter.jpg" class="image1">
     <% else %>
-      <img src="<%= @movie_info['Poster'] %>" class="image">
+      <img src="<%= @movie_info['poster'] %>" class="image">
     <% end %>
   </div>
 
   <div class="title-wrapper">
 
     <div class="title">
-      <h1> <%= @movie_info['Title'] %> (<%= @movie_info['Year'] %>)</h1>
+      <h1> <%= @movie_info['title'] %> (<%= @movie_info['year'] %>)</h1>
     </div>
 
     <div class="rating">
-      <div class="info-text">IMDb Rating: </br></div> <%= @movie_info['imdbRating'] %>
+      <div class="info-text">IMDb Rating: </br></div> <%= @movie_info['imdbrating'] %>
     </div>
 
     <div class="rated">
-      <div class="info-text">Rated: </br></div> <%= @movie_info['Rated'] %>
+      <div class="info-text">Rated: </br></div> <%= @movie_info['rated'] %>
     </div>
 
     <div class="released">
-      <div class="info-text">Released: </br></div> <%= @movie_info['Released'] %>
+      <div class="info-text">Released: </br></div> <%= @movie_info['released'] %>
     </div>
 
     <div class="runtime">
-      <div class="info-text">Runtime4: </br></div> <%= @movie_info['Runtime'] %>
+      <div class="info-text">Runtime: </br></div> <%= @movie_info['runtime'] %>
     </div>
 
   </div>
@@ -59,36 +59,26 @@
 
     <div class="plot">
       <div class="info-text">
-        <%= @movie_info['Plot'] %>
+        <%= @movie_info['plot'] %>
       </div>
     </div>
 
     <div class="genre">
-      <span class="info-text">Genre: </span><%= @movie_info['Genre'] %>
+      <span class="info-text">Genre: </span><%= @movie_info['genre'] %>
     </div>
 
     <div class="director">
-      <span class="info-text"> Director: </span><%= @movie_info['Director'] %>
+      <span class="info-text"> Director: </span><%= @movie_info['director'] %>
     </div>
 
     <div class="writers">
-      <span class="info-text"> Writers: </span><%= @movie_info['Writer'] %>
+      <span class="info-text"> Writers: </span><%= @movie_info['writer'] %>
     </div>
 
     <div class="actors">
-      <span class="info-text"> Cast: </span><%= @movie_info['Actors'] %>
+      <span class="info-text"> Cast: </span><%= @movie_info['actors'] %>
     </div>
 
   </div>
-
-  <!-- Looping through object in Sinatra: -->
-
-    <!-- <div class="info">
-      <% @movie_info.each do |k, v| %>
-        <% if k != "Poster" && k != "Title" && k != "Plot" && k != "Year" && k != "imdbID" && k != "Type" && k != "Response" %>
-          <div class="info-text"> <%= k %>: </div> <%= v %> </br></br>
-        <% end %>
-      <% end %>
-    </div> -->
 
 </div>

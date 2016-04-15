@@ -7,6 +7,10 @@ require './console'
 require './db_config'
 require './models/movie'
 
+after do
+  ActiveRecord::Base.connection.close
+end
+
 get '/' do
   erb :index
 end
@@ -28,10 +32,27 @@ get '/movie_info' do
 
   if !Movie.exists?(imdbid: movie_id)
     @movie_info = HTTParty.get("http://omdbapi.com/?i=#{movie_id}")
+    @movie_info = @movie_info.map { |k, v| [k.downcase, v] }.to_h
     movie = Movie.new
-    movie.title = @movie_info['Title']
-    movie.poster = @movie_info['Poster']
-    movie.imdbid = @movie_info['imdbID']
+    movie.title = @movie_info['title']
+    movie.year = @movie_info['year']
+    movie.rated = @movie_info['rated']
+    movie.released = @movie_info['released']
+    movie.runtime = @movie_info['runtime']
+    movie.genre = @movie_info['genre']
+    movie.director = @movie_info['director']
+    movie.writer = @movie_info['writer']
+    movie.actors = @movie_info['actors']
+    movie.plot = @movie_info['plot']
+    movie.language = @movie_info['language']
+    movie.country = @movie_info['country']
+    movie.awards = @movie_info['awards']
+    movie.poster = @movie_info['poster']
+    movie.metascore = @movie_info['metascore']
+    movie.imdbrating = @movie_info['imdbrating']
+    movie.imdbvotes = @movie_info['imdbvotes']
+    movie.imdbid = @movie_info['imdbid']
+    movie.response = @movie_info['response']
     movie.save
     puts "==================================================="
     puts "#{movie.title} saved and the id is #{movie.imdbid}"
@@ -47,23 +68,6 @@ end
 
 
 
-# movie.Year = @movie_info['Year']
-# movie.Rated = @movie_info['Rated']
-# movie.Released = @movie_info['Released']
-# movie.Runtime = @movie_info['Runtime']
-# movie.Genre = @movie_info['Genre']
-# movie.Director = @movie_info['Director']
-# movie.Writer = @movie_info['Writer']
-# movie.Actors = @movie_info['Actors']
-# movie.Plot = @movie_info['Plot']
-# movie.Language = @movie_info['Language']
-# movie.Country = @movie_info['Country']
-# movie.Awards = @movie_info['Awards']
-# movie.Metascore = @movie_info['Metascore']
-# movie.imdbRating = @movie_info['imdbRating']
-# movie.imdbVotes = @movie_info['imdbVotes']
-# movie.Type = @movie_info['Type']
-# movie.Response = @movie_info['Response']
 
 
 
@@ -83,3 +87,13 @@ end
 #   end
 #   erb :movie_info
 # end
+
+# <!-- Looping through object in Sinatra: -->
+#
+#   <!-- <div class="info">
+#     <% @movie_info.each do |k, v| %>
+#       <% if k != "Poster" && k != "Title" && k != "Plot" && k != "Year" && k != "imdbID" && k != "Type" && k != "Response" %>
+#         <div class="info-text"> <%= k %>: </div> <%= v %> </br></br>
+#       <% end %>
+#     <% end %>
+#   </div> -->
