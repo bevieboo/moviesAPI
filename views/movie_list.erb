@@ -27,6 +27,8 @@
       </div>
       <div class="result-title">
         <a href="/movie_info?imdbID=<%= k['imdbID'] %>"><%= k['Title'] %> (<%= k['Year']%>)</a></br></br>
+        <% @result_info = HTTParty.get("http://omdbapi.com/?i=#{k['imdbID']}") %>
+        <%= @result_info['Plot'] %>
       </div>
     </div>
   <% end %>

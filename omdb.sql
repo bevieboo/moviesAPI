@@ -22,6 +22,5 @@ CREATE TABLE movies (
   imdbrating VARCHAR(50),
   imdbvotes VARCHAR(5000),
   imdbid VARCHAR(50),
-  type VARCHAR(50),
   response VARCHAR(50)
 );

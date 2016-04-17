@@ -16,8 +16,10 @@ get '/' do
 end
 
 get '/movie_list' do
+
   if params[:movie] != nil
     movie_name = params[:movie]
+
     @result = HTTParty.get("http://omdbapi.com/?s=#{movie_name}")
 
     if @result['Response'] == 'False'
@@ -29,6 +31,7 @@ get '/movie_list' do
     end
 
   end
+
   erb :movie_list
 end
 
@@ -65,6 +68,9 @@ get '/movie_info' do
     puts "==================================================="
   else
     @movie_info = Movie.find_by(imdbid: movie_id)
+    puts "==================================================="
+    puts "#{@movie_info.title} has been retrieved from local database"
+    puts "==================================================="
   end
 
   erb :movie_info

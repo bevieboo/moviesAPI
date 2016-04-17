@@ -85,6 +85,11 @@ body {
   width: 50%;
   float: right;
   position: absolute;
+  font-family: helvetica;
+}
+
+.result-title {
+  font-family: helvetica;
 }
 
 .index-search {
